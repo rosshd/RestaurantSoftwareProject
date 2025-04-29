@@ -19,6 +19,11 @@ Simple restaurant management system built using JavaFX.
 6. Expand `Plugins` → `javafx` → Double-click `javafx:run`.
 7. The app will start.
 
+OR Right click in file explorer, click show more options, click open git bash here in the project root directory
+type:
+mvn clean install
+mvn javafx:run
+
 ✅ No terminal needed.  
 ✅ No separate Maven install needed.
 
