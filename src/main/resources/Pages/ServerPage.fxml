@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.ServerPageController">
+
+    <top>
+        <Label text="Server Page" style="-fx-font-size: 24px; -fx-padding: 10px;" BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 20px;">
+            <Label text="Your Tables" style="-fx-font-size: 18px;"/>
+            <ListView fx:id="serverTablesListView" prefHeight="400" prefWidth="400"/>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="startOrderButton" text="Start Order" onAction="#handleStartOrder"/>
+                <Button fx:id="editOrderButton" text="Edit Order" onAction="#handleEditOrder"/>
+            </HBox>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="sendOrderButton" text="Send to Kitchen" onAction="#handleSendOrder"/>
+                <Button fx:id="splitCheckButton" text="Split Check" onAction="#handleSplitCheck"/>
+            </HBox>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="transferTableButton" text="Transfer Table" onAction="#handleTransferTable"/>
+                <Button fx:id="refundItemButton" text="Refund/Discount Item" onAction="#handleRefundItem"/>
+            </HBox>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="enterTipsButton" text="Enter Tips" onAction="#handleEnterTips"/>
+                <Button fx:id="trackSalesButton" text="Track Sales" onAction="#handleTrackSales"/>
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>

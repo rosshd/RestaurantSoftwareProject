@@ -1,0 +1,11 @@
+.clean {
+    -fx-background-color: lightgreen;
+}
+
+.dirty {
+    -fx-background-color: lightcoral;
+}
+
+.occupied {
+    -fx-background-color: lightgray;
+}

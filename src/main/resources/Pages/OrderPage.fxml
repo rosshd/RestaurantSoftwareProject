@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.OrderPageController">
+
+    <top>
+        <Label text="Order Page" style="-fx-font-size: 24px; -fx-padding: 10px;"/>
+    </top>
+
+    <center>
+        <HBox spacing="20" alignment="CENTER" style="-fx-padding: 20px;">
+            <!-- Menu List -->
+            <VBox spacing="10" alignment="TOP_CENTER">
+                <Label text="Menu" style="-fx-font-size: 18px;"/>
+                <ListView fx:id="menuListView" prefHeight="400" prefWidth="200"/>
+                <Button fx:id="addItemButton" text="Add Item" prefWidth="150" onAction="#handleAddItem"/>
+            </VBox>
+
+            <!-- Order List -->
+            <VBox spacing="10" alignment="TOP_CENTER">
+                <Label text="Current Order" style="-fx-font-size: 18px;"/>
+                <ListView fx:id="orderListView" prefHeight="400" prefWidth="250"/>
+                <HBox spacing="10" alignment="CENTER">
+                    <Button fx:id="editItemButton" text="Edit Item" onAction="#handleEditItem"/>
+                    <Button fx:id="removeItemButton" text="Remove Item" onAction="#handleRemoveItem"/>
+                </HBox>
+                <Button fx:id="clearOrderButton" text="Clear Order" prefWidth="150" onAction="#handleClearOrder"/>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <Label fx:id="totalLabel" text="Total: $0.00" style="-fx-font-size: 18px; -fx-padding: 10px;" BorderPane.alignment="CENTER"/>
+    </bottom>
+
+</BorderPane>

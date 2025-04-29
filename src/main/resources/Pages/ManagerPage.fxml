@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Alert?>
+<?import javafx.scene.control.Alert.AlertType?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ManagerPageController">
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox spacing="20" style="-fx-background-color: #336699; padding: 10;">
+            <Button fx:id="createEmployeeButton" text="Create Employee" onAction="#handleCreateEmployee"/>
+            <Button fx:id="changeLayoutButton" text="Change Table Layout" onAction="#handleChangeLayout"/>
+            <Button fx:id="trackEmployeeButton" text="Track Employee Activity" onAction="#handleTrackEmployeeActivity"/>
+            <Button fx:id="trackSalesButton" text="Track Sales" onAction="#handleTrackSales"/>
+            <Button fx:id="trackInventoryButton" text="Track Inventory" onAction="#handleTrackInventory"/>
+        </HBox>
+    </top>
+
+    <!-- TabPane for different sections -->
+    <center>
+        <TabPane fx:id="mainTabPane">
+            <!-- Tab for Employee Activity -->
+            <Tab text="Employee Activity">
+                <VBox>
+                    <ListView fx:id="employeeActivityList" style="-fx-font-size: 16;"/>
+                </VBox>
+            </Tab>
+
+            <!-- Tab for Sales -->
+            <Tab text="Sales">
+                <VBox>
+                    <ListView fx:id="salesList" style="-fx-font-size: 16;"/>
+                </VBox>
+            </Tab>
+
+            <!-- Tab for Inventory -->
+            <Tab text="Inventory">
+                <VBox>
+                    <ListView fx:id="inventoryList" style="-fx-font-size: 16;"/>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>
