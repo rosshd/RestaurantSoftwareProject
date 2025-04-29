@@ -6,11 +6,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ScrollPane?>
+
 
 <?import javafx.scene.control.Label?>
-<VBox xmlns="http://javafx.com/javafx/24.0.1"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="controllers.BusBoyPageController"
+
+<ScrollPane xmlns="http://javafx.com/javafx/24.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.BusBoyPageController"
+            fitToWidth="true" pannable="true" vbarPolicy="ALWAYS">
+    <VBox
       spacing="20.0" alignment="CENTER" style="-fx-background-color: lightblue; -fx-padding: 30px;">
 
     <!-- Page Title -->
@@ -36,3 +41,4 @@
     </HBox>
 
 </VBox>
+</ScrollPane>
