@@ -5,7 +5,7 @@ Simple restaurant management system built using JavaFX.
 ## Requirements
 
 - IntelliJ IDEA (Community Edition is fine)
-- Java 17 or newer (tested on Java 24.0.1)
+- Java 24.0.1 
 - Internet connection (to download Maven dependencies automatically)
 
 ## How to Open and Run
@@ -24,8 +24,6 @@ type:
 mvn clean install
 mvn javafx:run
 
-✅ No terminal needed.  
-✅ No separate Maven install needed.
 
 ## Project Structure
 
