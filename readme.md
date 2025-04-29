@@ -41,18 +41,24 @@ Simple restaurant management system built using JavaFX.
    - Click the **M** button (Maven tab on the right side).
    - Expand **Plugins** → **javafx** → double-click **`javafx:run`** to run the project.
 
-# Run Jar file
+# Build and Run Jar file
+
+If you want to run the project without IntelliJ:
+
 1. Go to https://gluonhq.com/products/javafx/
 2. Download the JavaFX SDK for Windows.
 3. Extract it to `C:\`, so you should have a folder like `C:\javafx-sdk-24.0.1`.
-4. Open Command Prompt inside the project folder and run:
+
+4. Double-click `buildjar.bat` in the project folder.
+   - This will automatically build the `restaurant-software-1.0-SNAPSHOT.jar` without needing Maven installed manually.
+
+5. After building, double-click `runjar.bat`.
+   - This will launch the application using the JavaFX SDK.
+
+6. (Optional) If you extracted JavaFX to a different directory, edit `runjar.bat` and change the module path.
+   Example:
    ```
-   java --module-path "C:\javafx-sdk-24.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar target/restaurant-software-1.0-SNAPSHOT.jar
-   ```
-5. If you extracted JavaFX to a different directory, update the path in the command above to match your location.
-6. (Optional) You can edit `runjar.bat` to automatically use your custom JavaFX SDK path, for example:
-   ```
-   java --module-path "D:\user\javafx-sdk-24.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar target/restaurant-software-1.0-SNAPSHOT.jar
+   java --module-path "D:\user\javafx-sdk-24.0.1\lib" --add-modules javafx.controls,javafx.fxml -jar target\restaurant-software-1.0-SNAPSHOT.jar
    ```
 
 ## Project Structure
@@ -67,7 +73,11 @@ RestaurantSoftware/
  │            └── (FXML, CSS, other assets)
  ├── target/
  │    └── (compiled .class files and built .jar file)
- ├── pom.xml (Maven configuration file)
- ├── README.md (this file)
- └── runjar.bat (optional batch file to run jar easily)
+ ├── .mvn/ (Maven Wrapper files)
+ ├── mvnw
+ ├── mvnw.cmd
+ ├── buildjar.bat (builds the JAR)
+ ├── runjar.bat (runs the JAR)
+ ├── pom.xml
+ └── README.md (this file)
 ```

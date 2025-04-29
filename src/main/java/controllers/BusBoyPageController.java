@@ -20,6 +20,17 @@ public class BusBoyPageController {
     public void initialize() {
         // Initialize TableManager with gridPane and number of rows/columns
         tableManager = new TableManager(gridPane, 5, 6);  // 5 rows, 6 columns
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col < 6; col++) {
+                Button btn = tableManager.getButton(row, col);
+                if (btn != null) {
+                    btn.setOnAction(e -> {
+                        selectedTable = btn;
+                        System.out.println("Selected table: " + selectedTable.getText());
+                    });
+                }
+            }
+        }
     }
 
     // Mark selected table as Clean

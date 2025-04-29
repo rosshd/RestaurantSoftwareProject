@@ -8,9 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class LoginScreenController {
 
@@ -20,17 +23,38 @@ public class LoginScreenController {
     private StringBuilder enteredPin = new StringBuilder();
 
     // Hardcoded pins: PIN -> Role
-    private Map<String, String> employeePins = new HashMap<>();
+    private Map<String, StaffMember> pinToStaff = new HashMap<>();
 
     @FXML
     private void initialize() {
-        // Initialize some sample employee pins
-        employeePins.put("1234", "Host");
-        employeePins.put("2345", "Busboy");
-        employeePins.put("3456", "Server");
-        employeePins.put("4567", "Cook");
-        employeePins.put("5678", "Manager");
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(getClass().getResourceAsStream("/Pages/waitstaff.txt")))) {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 3) {
+                    String name = parts[0].trim();
+                    String pin = parts[1].trim();
+                    String role = parts[2].trim();
+                    pinToStaff.put(pin, new StaffMember(name, pin, role));
+                }
+            }
+        } catch (IOException | NullPointerException e) {
+            e.printStackTrace();
+            System.out.println("Could not load waitstaff.txt");
+        }
     }
+
+        // Initialize some sample employee pins
+        //employeePins.put("1234", "Host");
+        //employeePins.put("2345", "Busboy");
+       //employeePins.put("3456", "Server");
+        //employeePins.put("4567", "Cook");
+        //employeePins.put("5678", "Manager");
+
+
+
 
     @FXML
     private void handleNumberButton(ActionEvent event) {
@@ -50,12 +74,14 @@ public class LoginScreenController {
     @FXML
     private void handleEnterButton() {
         String pin = enteredPin.toString();
-        if (employeePins.containsKey(pin)) {
-            String role = employeePins.get(pin);
-            System.out.println("Login successful! Role: " + role);
-            pinDisplay.setText("Welcome, " + role + "!");
+        StaffMember staff = pinToStaff.get(pin);
 
-            // Load the appropriate page based on the role
+        if (staff != null) {
+            String name = staff.getName();
+            String role = staff.getRole();
+            System.out.println("Login successful! Welcome " + name + " (" + role + ")");
+            pinDisplay.setText("Welcome, " + name + "!");
+
             loadRolePage(role);
         } else {
             System.out.println("Login failed!");
@@ -79,13 +105,13 @@ public class LoginScreenController {
             if ("Host".equals(role)) {
                 fxmlFile = "/Pages/TableViewPage.fxml"; // Path to Host's table view page
             } else if ("Busboy".equals(role)) {
-                fxmlFile = "/Pages/BusboyPage.fxml"; // Example: Path to busboy's page
+                fxmlFile = "/Pages/BusBoyPage.fxml"; // Path to busboy's page
             } else if ("Server".equals(role)) {
-                fxmlFile = "/Pages/ServerPage.fxml"; // Example: Path to server's page
+                fxmlFile = "/Pages/ServerPage.fxml"; // Path to server's page
             } else if ("Cook".equals(role)) {
-                fxmlFile = "/Pages/KitchenPage.fxml"; // Example: Path to cook's page
+                fxmlFile = "/Pages/KitchenPage.fxml"; // Path to cook's page
             } else if ("Manager".equals(role)) {
-                fxmlFile = "/Pages/ManagerPage.fxml"; // Example: Path to manager's page
+                fxmlFile = "/Pages/ManagerPage.fxml"; // Path to manager's page
             }
 
             // Load the corresponding page based on role

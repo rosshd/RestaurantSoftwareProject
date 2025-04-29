@@ -1,19 +1,7 @@
-<html>
-<head>
-<title>waitstaff.txt</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
-.s0 { color: #bcbec4;}
-</style>
-<script type='text/javascript' src='https://attachments.office.net/OpOSe_rTr-2UvYQWoRPGv5cavhJQV2dI2kZ6Majxxg1NpslfLjN0G-qtZ17yhDhvPwu0EMh1LhKaflYYAdtikA=='></script></head>
-<body bgcolor="#1e1f22">
-<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
-<tr><td><center>
-<font face="Arial, Helvetica" color="#000000">
-waitstaff.txt</font>
-</center></td></tr></table>
-<pre><span class="s0">Ross</span>
-<span class="s0">Anna</span>
-<span class="s0">Gio</span></pre>
-</body>
-</html>
+Sarah,1234,Host
+Ethan,2345,Busboy
+Gio,3456,Server
+Anna,3457,Server
+Ross,3458,Server
+Bernard,4567,Cook
+John,5678,Manager

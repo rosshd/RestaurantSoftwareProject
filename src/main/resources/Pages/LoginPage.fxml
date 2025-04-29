@@ -13,7 +13,7 @@
 
     <Label text="Login" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: black;"/>
 
-    <Label text="(Host: 1234, Busboy: 2345, Server: 3456, Cook: 4567, Manager: 5678)"
+    <Label text="(Host: 1234, Busboy: 2345, Server: 3456-3458, Cook: 4567, Manager: 5678)"
            style="-fx-font-size: 16px; -fx-text-fill: black; -fx-padding: 10px;"/>
 
     <Label fx:id="pinDisplay" text="Enter PIN" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: black;"/>

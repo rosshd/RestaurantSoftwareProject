@@ -13,6 +13,7 @@
             <Button fx:id="finishTicketButton" text="Finish Ticket" onAction="#handleFinishTicket"/>
             <Button fx:id="pullUpOrdersButton" text="Pull Up Past Orders" onAction="#handlePullUpOrders"/>
             <Button fx:id="markItemsCompleteButton" text="Mark Items Complete" onAction="#handleMarkItemsComplete"/>
+            <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout" /><!--Logout -->
         </VBox>
     </top>
     <center>

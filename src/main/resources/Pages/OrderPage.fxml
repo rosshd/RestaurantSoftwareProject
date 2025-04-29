@@ -1,60 +1,47 @@
-<html>
-<head>
-<title>OrderPage.fxml</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
-.s0 { color: #d5b778;}
-.s1 { color: #bcbec4;}
-.s2 { color: #6aab73;}
-.s3 { color: #bcbec4;}
-.s4 { color: #7a7e85;}
-</style>
-<script type='text/javascript' src='https://attachments.office.net/MTweZ1IQ7Fycd5EF1F85_p7nXCrLt8sld4KTO-rywiTplDidWUg8s0FPuCb3l6OYwPEi9A6I2G6edBzBixfDtA=='></script></head>
-<body bgcolor="#1e1f22">
-<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
-<tr><td><center>
-<font face="Arial, Helvetica" color="#000000">
-OrderPage.fxml</font>
-</center></td></tr></table>
-<pre><span class="s0">&lt;?</span><span class="s1">xml version</span><span class="s2">=&quot;1.0&quot; </span><span class="s1">encoding</span><span class="s2">=&quot;UTF-8&quot;</span><span class="s0">?&gt;</span>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<span class="s0">&lt;?</span><span class="s1">import </span><span class="s2">javafx.scene.control.*</span><span class="s0">?&gt;</span>
-<span class="s0">&lt;?</span><span class="s1">import </span><span class="s2">javafx.scene.layout.*</span><span class="s0">?&gt;</span>
-<span class="s0">&lt;?</span><span class="s1">import </span><span class="s2">javafx.geometry.*</span><span class="s0">?&gt;</span>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
 
-<span class="s0">&lt;BorderPane </span><span class="s1">xmlns:fx</span><span class="s2">=&quot;http://javafx.com/fxml&quot; </span><span class="s1">fx:controller</span><span class="s2">=&quot;controllers.OrderPageController&quot;</span><span class="s0">&gt;</span>
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.OrderPageController"
+            fitToWidth="true" fitToHeight="true" pannable="true" vbarPolicy="ALWAYS">
 
-    <span class="s0">&lt;top&gt;</span>
-        <span class="s0">&lt;Label </span><span class="s1">text</span><span class="s2">=&quot;Order Page&quot; </span><span class="s1">style</span><span class="s2">=&quot;-fx-font-size: 24px; -fx-padding: 10px;&quot;</span><span class="s0">/&gt;</span>
-    <span class="s0">&lt;/top&gt;</span>
+    <BorderPane>
+        <top>
+            <HBox spacing="10" alignment="CENTER" style="-fx-padding-top: 20px;">
+                <Label text="Order Page" style="-fx-font-size: 24px; -fx-padding: 10px;" />
+                <Button fx:id="ServerBackButton" text="Back" onAction="#backToServerPage" />
+            </HBox>
+        </top>
 
-    <span class="s0">&lt;center&gt;</span>
-        <span class="s0">&lt;HBox </span><span class="s1">spacing</span><span class="s2">=&quot;20&quot; </span><span class="s1">alignment</span><span class="s2">=&quot;CENTER&quot; </span><span class="s1">style</span><span class="s2">=&quot;-fx-padding: 20px;&quot;</span><span class="s0">&gt;</span>
-            <span class="s4">&lt;!-- Menu List --&gt;</span>
-            <span class="s0">&lt;VBox </span><span class="s1">spacing</span><span class="s2">=&quot;10&quot; </span><span class="s1">alignment</span><span class="s2">=&quot;TOP_CENTER&quot;</span><span class="s0">&gt;</span>
-                <span class="s0">&lt;Label </span><span class="s1">text</span><span class="s2">=&quot;Menu&quot; </span><span class="s1">style</span><span class="s2">=&quot;-fx-font-size: 18px;&quot;</span><span class="s0">/&gt;</span>
-                <span class="s0">&lt;ComboBox </span><span class="s1">fx:id</span><span class="s2">=&quot;categoryComboBox&quot; </span><span class="s1">onAction</span><span class="s2">=&quot;#handleCategoryChange&quot;</span><span class="s0">/&gt;</span>
-                <span class="s0">&lt;ListView </span><span class="s1">fx:id</span><span class="s2">=&quot;menuListView&quot; </span><span class="s1">prefHeight</span><span class="s2">=&quot;300&quot; </span><span class="s1">prefWidth</span><span class="s2">=&quot;200&quot;</span><span class="s0">/&gt;</span>
-                <span class="s0">&lt;Button </span><span class="s1">fx:id</span><span class="s2">=&quot;addItemButton&quot; </span><span class="s1">text</span><span class="s2">=&quot;Add Item&quot; </span><span class="s1">prefWidth</span><span class="s2">=&quot;150&quot; </span><span class="s1">onAction</span><span class="s2">=&quot;#handleAddItem&quot;</span><span class="s0">/&gt;</span>
-            <span class="s0">&lt;/VBox&gt;</span>
+        <center>
+            <HBox spacing="20" alignment="CENTER" style="-fx-padding: 20px;">
+                <!-- Menu List -->
+                <VBox spacing="10" alignment="TOP_CENTER">
+                    <Label text="Menu" style="-fx-font-size: 18px;" />
+                    <ComboBox fx:id="categoryComboBox" prefWidth="200" onAction="#handleCategoryChange"/>
+                    <ListView fx:id="menuListView" prefHeight="300" prefWidth="200" />
+                    <Button fx:id="addItemButton" text="Add Item" prefWidth="150" onAction="#handleAddItem" />
+                </VBox>
 
-            <span class="s4">&lt;!-- Order List --&gt;</span>
-            <span class="s0">&lt;VBox </span><span class="s1">spacing</span><span class="s2">=&quot;10&quot; </span><span class="s1">alignment</span><span class="s2">=&quot;TOP_CENTER&quot;</span><span class="s0">&gt;</span>
-                <span class="s0">&lt;Label </span><span class="s1">text</span><span class="s2">=&quot;Current Order&quot; </span><span class="s1">style</span><span class="s2">=&quot;-fx-font-size: 18px;&quot;</span><span class="s0">/&gt;</span>
-                <span class="s0">&lt;ListView </span><span class="s1">fx:id</span><span class="s2">=&quot;orderListView&quot; </span><span class="s1">prefHeight</span><span class="s2">=&quot;400&quot; </span><span class="s1">prefWidth</span><span class="s2">=&quot;250&quot;</span><span class="s0">/&gt;</span>
-                <span class="s0">&lt;HBox </span><span class="s1">spacing</span><span class="s2">=&quot;10&quot; </span><span class="s1">alignment</span><span class="s2">=&quot;CENTER&quot;</span><span class="s0">&gt;</span>
-                    <span class="s0">&lt;Button </span><span class="s1">fx:id</span><span class="s2">=&quot;editItemButton&quot; </span><span class="s1">text</span><span class="s2">=&quot;Edit Item&quot; </span><span class="s1">onAction</span><span class="s2">=&quot;#handleEditItem&quot;</span><span class="s0">/&gt;</span>
-                    <span class="s0">&lt;Button </span><span class="s1">fx:id</span><span class="s2">=&quot;removeItemButton&quot; </span><span class="s1">text</span><span class="s2">=&quot;Remove Item&quot; </span><span class="s1">onAction</span><span class="s2">=&quot;#handleRemoveItem&quot;</span><span class="s0">/&gt;</span>
-                <span class="s0">&lt;/HBox&gt;</span>
-                <span class="s0">&lt;Button </span><span class="s1">fx:id</span><span class="s2">=&quot;clearOrderButton&quot; </span><span class="s1">text</span><span class="s2">=&quot;Clear Order&quot; </span><span class="s1">prefWidth</span><span class="s2">=&quot;150&quot; </span><span class="s1">onAction</span><span class="s2">=&quot;#handleClearOrder&quot;</span><span class="s0">/&gt;</span>
-            <span class="s0">&lt;/VBox&gt;</span>
-        <span class="s0">&lt;/HBox&gt;</span>
-    <span class="s0">&lt;/center&gt;</span>
+                <!-- Order List -->
+                <VBox spacing="10" alignment="TOP_CENTER">
+                    <Label text="Current Order" style="-fx-font-size: 18px;" />
+                    <ListView fx:id="orderListView" prefHeight="400" prefWidth="250" />
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button fx:id="editItemButton" text="Edit Price" onAction="#handleEditItem" />
+                        <Button fx:id="removeItemButton" text="Remove Item" onAction="#handleRemoveItem" />
+                    </HBox>
+                    <Button fx:id="clearOrderButton" text="Clear Order" prefWidth="100" onAction="#handleClearOrder" />
+                    <Button fx:id="sendOrderButton" text="Send Order" prefWidth="100" onAction="#handleSendOrder" />
+                </VBox>
+            </HBox>
+        </center>
 
-    <span class="s0">&lt;bottom&gt;</span>
-        <span class="s0">&lt;Label </span><span class="s1">fx:id</span><span class="s2">=&quot;totalLabel&quot; </span><span class="s1">text</span><span class="s2">=&quot;Total: $0.00&quot; </span><span class="s1">style</span><span class="s2">=&quot;-fx-font-size: 18px; -fx-padding: 10px;&quot; </span><span class="s1">BorderPane.alignment</span><span class="s2">=&quot;CENTER&quot;</span><span class="s0">/&gt;</span>
-    <span class="s0">&lt;/bottom&gt;</span>
-
-<span class="s0">&lt;/BorderPane&gt;</span></pre>
-</body>
-</html>
+        <bottom>
+            <Label fx:id="totalLabel" text="Total: $0.00"
+                   style="-fx-font-size: 18px; -fx-padding: 10px;" BorderPane.alignment="CENTER" />
+        </bottom>
+    </BorderPane>
+</ScrollPane>

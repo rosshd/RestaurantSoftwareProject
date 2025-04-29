@@ -24,18 +24,9 @@
     <!-- Section for Table Actions (Clean, Dirty, Seated) -->
     <VBox spacing="15" alignment="CENTER">
         <HBox spacing="10" alignment="CENTER">
-            <Label text="Mark as Clean" />
-            <Button text="Clean" onAction="#handleMarkClean" style="-fx-pref-width: 150px;"/>
-        </HBox>
-
-        <HBox spacing="10" alignment="CENTER">
-            <Label text="Mark as Dirty" />
-            <Button text="Dirty" onAction="#handleMarkDirty" style="-fx-pref-width: 150px;"/>
-        </HBox>
-
-        <HBox spacing="10" alignment="CENTER">
-            <Label text="Mark as Seated" />
-            <Button text="Seated" onAction="#handleMarkSeated" style="-fx-pref-width: 150px;"/>
+            <Button text="Mark as Clean" onAction="#handleMarkClean" style="-fx-pref-width: 150px;"/>
+            <Button text="Mark as Dirty" onAction="#handleMarkDirty" style="-fx-pref-width: 150px;"/>
+            <Button text="Mark as Seated" onAction="#handleMarkSeated" style="-fx-pref-width: 150px;"/>
         </HBox>
     </VBox>
 

@@ -14,6 +14,10 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 public class TableViewController {
     @FXML private Button table1, table2, table3, table4, table5;
     @FXML private Button table6, table7, table8, table9, table10;
@@ -29,13 +33,48 @@ public class TableViewController {
 
     @FXML
     public void initialize() {
-        ObservableList<String> servers = FXCollections.observableArrayList("Server 1", "Server 2", "Server 3");
-        serverComboBox.setItems(servers);
+        loadServersFromFile();
+
 
         // Initialize TableManager with gridPane and number of rows/columns
         tableManager = new TableManager(gridPane, 5, 6);  // 5 rows, 6 columns
+        // Attach click events manually
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col < 6; col++) {
+                Button btn = tableManager.getButton(row, col);
+                if (btn != null) {
+                    final int r = row;
+                    final int c = col;
+                    btn.setOnAction(e -> handleTableClick(r, c, btn));
+                }
+            }
+        }
     }
+    private void loadServersFromFile() {
+        ObservableList<String> servers = FXCollections.observableArrayList();
+        //imports servers from .txt file to display in dropdown
+        try (InputStream is = getClass().getResourceAsStream("/Pages/waitstaff.txt");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
 
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 3) {
+                    String name = parts[0];
+                    String pin = parts[1];
+                    String role = parts[2];
+
+                    if (role.trim().equalsIgnoreCase("Server")) {
+                        servers.add(name);  // Only add servers!
+                    }
+                }
+            }
+            serverComboBox.setItems(servers);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     // Handling table click (marking tables as sat/dirty/empty)
     @FXML
     private void handleTableClick(int row, int col, Button tableButton) {

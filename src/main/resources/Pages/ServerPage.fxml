@@ -34,7 +34,12 @@
                 <Button fx:id="enterTipsButton" text="Enter Tips" onAction="#handleEnterTips"/>
                 <Button fx:id="trackSalesButton" text="Track Sales" onAction="#handleTrackSales"/>
             </HBox>
+            <!-- Logout Button -->
+            <HBox spacing="10" alignment="CENTER" style="-fx-padding-top: 20px;">
+                <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout" />
+            </HBox>
         </VBox>
+
     </center>
 
 </BorderPane>

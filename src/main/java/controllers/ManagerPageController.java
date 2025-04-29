@@ -1,12 +1,15 @@
 package controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class ManagerPageController {
 
@@ -78,6 +81,27 @@ public class ManagerPageController {
         System.out.println("Tracking inventory...");
         // TODO: Logic to track inventory (e.g., current stock, reorder levels)
         showAlert("Track Inventory", "This will allow you to track the inventory.");
+    }
+
+    @FXML
+    private Button logoutButton;  // Declare the logoutButton
+
+    @FXML
+    private void handleLogout() {
+        try {
+            // Load the LoginPage FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Pages/LoginPage.fxml"));
+            Scene scene = new Scene(loader.load());
+
+            // Get the current stage and set the new scene
+            Stage stage = (Stage) logoutButton.getScene().getWindow();  // Get the current window
+            stage.setScene(scene);
+            stage.setTitle("Login - Restaurant System");
+            stage.show();
+        } catch(Exception e) {
+
+            // Handle the error if the FXML file cannot be loaded
+        }
     }
 
     private void showAlert(String title, String message) {

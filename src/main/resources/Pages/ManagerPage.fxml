@@ -19,7 +19,9 @@
             <Button fx:id="trackEmployeeButton" text="Track Employee Activity" onAction="#handleTrackEmployeeActivity"/>
             <Button fx:id="trackSalesButton" text="Track Sales" onAction="#handleTrackSales"/>
             <Button fx:id="trackInventoryButton" text="Track Inventory" onAction="#handleTrackInventory"/>
+            <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout" /><!--Logout -->
         </HBox>
+
     </top>
 
     <!-- TabPane for different sections -->
@@ -45,6 +47,7 @@
                     <ListView fx:id="inventoryList" style="-fx-font-size: 16;"/>
                 </VBox>
             </Tab>
+
         </TabPane>
     </center>
 </BorderPane>
