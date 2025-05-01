@@ -43,6 +43,7 @@ public class TableViewController {
             for (int col = 0; col < 6; col++) {
                 Button btn = tableManager.getButton(row, col);
                 if (btn != null) {
+                    btn.setStyle("-fx-background-color: #c7c7c7;");
                     final int r = row;
                     final int c = col;
                     btn.setOnAction(e -> handleTableClick(r, c, btn));
@@ -88,7 +89,7 @@ public class TableViewController {
             tableButton.setStyle("-fx-background-color: red;"); // Dirty
             table.setStatus("dirty");
         } else {
-            tableButton.setStyle("-fx-background-color: green;"); // Clean
+            tableButton.setStyle("-fx-background-color: #c7c7c7;"); // Clean
             table.setStatus("clean");
         }
     }

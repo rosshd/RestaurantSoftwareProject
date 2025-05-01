@@ -23,9 +23,9 @@ public class TableManager {
                 int tableIndex = row * cols + col;
 
                 Button tableButton = new Button("Table " + (tableIndex + 1));
-                tableButton.setMinWidth(100);
-                tableButton.setMinHeight(100);
-                tableButton.setStyle("-fx-base: lightgray;");
+                tableButton.setMinWidth(60);
+                tableButton.setMinHeight(60);
+                tableButton.setStyle("-fx-base: #c7c7c7;");
 
                 tableButtons[row][col] = tableButton;
                 tables[tableIndex] = new TableLayout(

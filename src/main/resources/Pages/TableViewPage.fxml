@@ -31,8 +31,8 @@
         <!-- Reservation and Assigning Servers -->
         <VBox spacing="15" alignment="CENTER">
             <HBox spacing="15" alignment="CENTER">
-                <Label text="Legend:" style="-fx-font-weight: bold;" />
-                <Label text="Clean" style="-fx-background-color: green; -fx-text-fill: black; -fx-padding: 5px;" />
+                <Label text="Table Status:" style="-fx-font-weight: bold;" />
+                <Label text="Clean" style="-fx-background-color: #c7c7c7; -fx-text-fill: black; -fx-padding: 5px;" />
                 <Label text="Seated" style="-fx-background-color: yellow; -fx-text-fill: black; -fx-padding: 5px;" />
                 <Label text="Dirty" style="-fx-background-color: red; -fx-text-fill: black; -fx-padding: 5px;" />
             </HBox>
@@ -42,7 +42,7 @@
             <HBox spacing="10" alignment="CENTER">
                 <Label text="Assign Server:" />
                 <ComboBox fx:id="serverComboBox" prefWidth="150" onAction="#handleAssignServer"/>
-                <Button text="Place Call-in Orders" onAction="#handleCallInOrder" style="-fx-pref-width: 200px; -fx-font-size: 16px;"/>
+                <Button text="Assign Server" onAction="#handleCallInOrder" style="-fx-pref-width: 200px; -fx-font-size: 16px;"/>
 
             </HBox>
 
