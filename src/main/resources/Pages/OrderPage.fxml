@@ -28,7 +28,7 @@
                 <!-- Order List -->
                 <VBox spacing="10" alignment="TOP_CENTER">
                     <Label text="Current Order" style="-fx-font-size: 18px;" />
-                    <ListView fx:id="orderListView" prefHeight="400" prefWidth="250" />
+                    <ListView fx:id="orderListView" prefHeight="200" prefWidth="250" />
                     <HBox spacing="10" alignment="CENTER">
                         <Button fx:id="editItemButton" text="Edit Price" onAction="#handleEditItem" />
                         <Button fx:id="removeItemButton" text="Remove Item" onAction="#handleRemoveItem" />

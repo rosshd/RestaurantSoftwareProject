@@ -13,7 +13,7 @@
     <center>
         <VBox spacing="20" alignment="CENTER" style="-fx-padding: 20px;">
             <Label text="Your Tables" style="-fx-font-size: 18px;"/>
-            <ListView fx:id="serverTablesListView" prefHeight="400" prefWidth="400"/>
+            <ListView fx:id="serverTablesListView" prefHeight="200" prefWidth="400"/>
 
             <HBox spacing="15" alignment="CENTER">
                 <Button fx:id="startOrderButton" text="Start Order" onAction="#handleStartOrder"/>
